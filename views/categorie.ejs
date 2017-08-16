@@ -1,0 +1,23 @@
+<% include header %>
+
+<nav>
+  <% for (var i = 0; i < categorieen.length; i++) { %>
+    <a href="/categorieen/<%- i %>"><%- categorieen[i] %></a>
+  <% } %>
+</nav>
+
+        <h2 class="categorie">Foto's met categorie <%- categorieen[id] %></h2>
+
+    <% for (var i = 0; i < items.length; i++) { %>
+    <% if (items[i].categorieen.indexOf(categorieen[id]) !== -1) { %>
+
+      <section>
+        <h2><a href=/items/<%- items[i].id %>><%- items[i].fotograaf %> - <%- items[i].titel %></h2>
+
+        <img src="/img/<%- items[i].afbeeldings %>" alt="<%- items[i].titel %>"></a>
+        <p class="datum"><%- items[i].datum %>, <%- items[i].plaats %> </p>
+      </section>
+    <% } %>
+  <% } %>
+
+<% include footer %>
